@@ -1,0 +1,264 @@
+1) Npm i react-router-dom,  react-icons, sass
+
+Start -------->
+
+1) Header ---------------> 
+create header component and header.scss ->
+
+Header.jsx ->
+const Header = () => {
+  return (
+    <nav>
+      <h1 className="logo">Tech Start</h1>
+      <main className="rightSideMenu">
+        <Link to={"/"}>Home</Link>
+        <Link to={"/contact"}>Contact</Link>
+        <Link to={"/#about"}>About</Link>
+        {/* #about -> coz hum ik id dedege agr ispr click krega to 
+         idr ajega scroll hokr */}
+        <Link to={"/#brands"}>Brands</Link>
+        <Link to={"/services"}>Services</Link>
+      </main>
+    </nav>
+  );
+};
+
+Header.scss ->
+@import "colors.scss";
+
+nav {
+  width: 100%;
+  padding: 1rem; // 16px , root elem -> means html tag
+  display: flex; // row me lane ke liye
+  justify-content: space-between; // equal space divide hojegi,
+  //bheech ke jo elem honge unko,
+  //    space-evenly -> equal space divide hoti including start and end
+  //     side also
+
+  background-color: $first;
+  position: sticky; //taki ik jgh stick rhe
+  top: 0%;
+  z-index: 10000; // taki top pr rhe yeh
+
+  > h1 {
+    text-transform: uppercase; // left logo
+  }
+
+  > main {
+    // border: 1px solid red;
+    width: 70%;
+    display: flex;
+    justify-content: flex-end;
+
+    > a {
+      color: $dark;
+      margin: 1rem;
+
+      &:hover {
+        color: $third;
+      }
+    }
+  }
+}
+
+
+
+----------------------------------------
+2) MAKING HOME SECTION
+Make home.jsx and home.scss
+
+
+
+Style -> Home.scss -> 1st is Banner section and Then niche jo content aayega
+
+@import "./colors.scss";
+
+.homesection {
+  //NOTE -> Har cheez ko heigth and width jrur denge taki visible
+  // hoye
+  width: 100%;
+  height: 100vh;
+  background-color: $second; // navy blue
+  border-radius: 0 0 200px 200px; // top rigth, bottom left
+
+  > main {
+    // border: 1px solid red;
+    position: absolute; // absolute -> relative to its parent
+    text-transform: uppercase; // convert to all letter capital
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding: 2rem;
+
+    > h1 {
+      font: 400 6rem "Roboto";
+      color: $first;
+    }
+
+    > p {
+      font: 900 1rem "Roboto";
+      color: $first;
+    }
+  }
+
+  &::before {
+    // backgorund bdl rhe h isliye aisa krre hai
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: no-repeat center/auto url("../assets/1.png");
+    filter: blur(3px); // taki blue hoje
+    border-radius: 0 0 200px 200px; // yehi upr home section me
+    //  bhi diya taki curve aajaye
+  }
+}
+
+.home2 {
+  width: 100%;
+  height: 100vh;
+  background-color: $second; // navy blue
+  padding: 500px 0;
+  /*
+  Agr 1 de toh -> All four side se apply hoti
+  Agr 2 de toh -> top bottom, right left
+  Agr 4 de toh -> top right bottom left
+  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -200px; // Taki upr hum kuch change krege means
+  // border add kra 200px ka to white white hogya to color cover
+  //  krne ke liye humne yeh kra
+
+  > img {
+    width: 30%;
+    animation: imgUp 0.7s linear infinite alternate;
+    /*
+    imgUp
+    0.7s itne time ke liye chlani h
+    infinite hogi infite chlti rhegi
+    alternate -> Means shuru se end tak chlti rhegi and waps    
+     reverse me bhi chlti rhegi
+    */
+  }
+
+  > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    height: 100vh;
+
+    > p {
+      color: $first;
+      letter-spacing: 2px;
+      word-spacing: 5px;
+      font: 100 1.2rem $text2;
+    }
+  }
+}
+
+@keyframes imgUp {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+
+.home3 {
+  // border: 1px solid red;
+  width: 100%;
+  height: 120vh;
+  background-color: $second;
+  margin-top: -200px;
+  display: flex;
+
+  > div {
+    width: 70%;
+    height: 100vh;
+    background-color: $first; // white
+    border-radius: 0 200px 200px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    > h1 {
+      text-transform: uppercase;
+      border-bottom: 2px solid $dark;
+      padding: 0.5rem;
+      width: 15rem;
+      color: $dark;
+    }
+
+    > p {
+      padding: 5rem;
+      letter-spacing: 1px;
+      word-spacing: 1px;
+      line-height: 170%;
+      // font-style: italic;
+      // font-weight: 100;
+      // font-size: 1.2rem;
+      font: italic 100 1.2rem $text2;
+    }
+  }
+}
+
+
+IMPORTANT --------------->
+
+hum like #about di h id
+ <Link to={"/#about"}>About</Link>
+ to means about pr click kre to about pr scroll hojana chaiye 
+ jidr about section h udr id hai about 
+Like normal html css js me hota tha ,
+so use in Header.js 
+
+so import 1 package -> npm i react-router-hash-link - 2.4.3 version
+react version - 18.2.0
+react-dom "18.2.0"
+react-icons - 4.4.0
+react router dom - 6.4.2
+sass - 1.55.0 
+
+
+ <nav>
+      <h1 className="logo">Tech Start</h1>
+      <main className="rightSideMenu">
+        <HashLink to={"/#home"}>Home</HashLink>
+        <HashLink to={"/contact"}>Contact</HashLink>
+        <HashLink to={"/#about"}>About</HashLink>
+        {/* #about -> coz hum ik id dedege agr ispr click krega to 
+         idr ajega scroll hokr */}
+        <HashLink to={"/#brands"}>Brands</HashLink>
+        <HashLink to={"/services"}>Services</HashLink>
+      </main>
+    </nav>
+
+
+    <------------------------------------->
+
+
+    FOOTER STYLES 
+
+
+
+    <--------------------------------------->
+    SERVICES PAGE 
+`
+
+-> Import new package -> npm i react-responsive-carousel
+
+-> Deploy at varcel -> import package for that
+
+
+
+
+

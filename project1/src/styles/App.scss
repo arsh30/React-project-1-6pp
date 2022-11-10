@@ -1,0 +1,26 @@
+/* 
+diff between sass and scss 
+both are same 
+but 
+
+agr property deni h scss -> p { background-color:red}
+sass ->  p background-Color: red; [curly bracket ki need nhi hoti isme]
+
+scss -> agr property deni h p tag ke andr a tag hai , means Nesting is possible
+p{
+  a {
+    color:red; 
+
+
+But in sass -> curly bracket nhi lgate
+*/
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  box-sizing: border-box;
+  text-decoration: none; /* a tag ki hojati h*/
+  scroll-behavior: smooth;
+}

@@ -1,0 +1,201 @@
+@import "./colors.scss";
+
+.homesection {
+  //NOTE -> Har cheez ko heigth and width jrur denge taki visible
+  // hoye
+  width: 100%;
+  height: 100vh;
+  background-color: $second; // navy blue
+  border-radius: 0 0 200px 200px; // top rigth, bottom left
+
+  > main {
+    // border: 1px solid red;
+    position: absolute; // absolute -> relative to its parent
+    text-transform: uppercase; // convert to all letter capital
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    padding: 2rem;
+
+    > h1 {
+      font: 400 6rem "Roboto";
+      color: $first;
+    }
+
+    > p {
+      font: 900 1rem "Roboto";
+      color: $first;
+    }
+  }
+
+  &::before {
+    // backgorund bdl rhe h isliye aisa krre hai
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: no-repeat center/auto url("../assets/1.png");
+    filter: blur(3px); // taki blue hoje
+    border-radius: 0 0 200px 200px; // yehi upr home section me
+    //  bhi diya taki curve aajaye
+  }
+}
+
+.home2 {
+  width: 100%;
+  height: 100vh;
+  background-color: $second; // navy blue
+  padding: 500px 0;
+  /*
+  Agr 1 de toh -> All four side se apply hoti
+  Agr 2 de toh -> top bottom, right left
+  Agr 4 de toh -> top right bottom left
+  */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -200px; // Taki upr hum kuch change krege means
+  // border add kra 200px ka to white white hogya to color cover
+  //  krne ke liye humne yeh kra
+
+  > img {
+    width: 30%;
+    animation: imgUp 0.7s linear infinite alternate;
+    /*
+    imgUp
+    0.7s itne time ke liye chlani h
+    infinite hogi infite chlti rhegi
+    alternate -> Means shuru se end tak chlti rhegi and waps    
+     reverse me bhi chlti rhegi
+    */
+  }
+
+  > div {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 5rem;
+    height: 100vh;
+
+    > p {
+      color: $first;
+      letter-spacing: 2px;
+      word-spacing: 5px;
+      font: 100 1.2rem $text2;
+    }
+  }
+}
+
+@keyframes imgUp {
+  to {
+    transform: translateY(-10px);
+  }
+}
+
+.home3 {
+  // border: 1px solid red;
+  width: 100%;
+  height: 120vh;
+  background-color: $second;
+  margin-top: -200px;
+  display: flex;
+
+  > div {
+    width: 70%;
+    height: 100vh;
+    background-color: $first; // white
+    border-radius: 0 200px 200px 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+
+    > h1 {
+      text-transform: uppercase;
+      border-bottom: 2px solid $dark;
+      padding: 0.5rem;
+      width: 15rem;
+      color: $dark;
+    }
+
+    > p {
+      padding: 5rem;
+      letter-spacing: 1px;
+      word-spacing: 1px;
+      line-height: 170%;
+      // font-style: italic;
+      // font-weight: 100;
+      // font-size: 1.2rem;
+      font: italic 100 1.2rem $text2;
+    }
+  }
+}
+
+.home4 {
+  width: 100%;
+  height: 100vh;
+  background-color: $second;
+  display: flex;
+  justify-content: flex-end;
+
+  > div {
+    background-color: $third;
+    border-radius: 200px 0 0 200px;
+    width: 70%;
+    height: 70vh;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    > h1 {
+      color: $first;
+      text-transform: uppercase;
+      width: 140px;
+      border-bottom: 2px solid $first;
+      padding: 0.5rem;
+    }
+
+    > article {
+      display: flex;
+      margin: 2rem 0;
+      flex-wrap: wrap; /*jese screen ka size chota hota jaega toh vo wrap hojega */
+      justify-content: center;
+
+      > div {
+        animation: imgUp 0.7s linear infinite alternate; // har ka
+        //  timing alag chlega coz delay add kri hai inline styling
+        margin: 1rem;
+        height: 10rem;
+        width: 10rem;
+        background-color: $first;
+        border-radius: 50%; // circle hojega
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        color: $dark;
+        cursor: pointer;
+        transition: all 0.5s;
+
+        &:hover {
+          filter: invert(1);
+        }
+
+        svg {
+          font-size: 4rem;
+        }
+        p {
+          font: 900 1.2rem $text2;
+        }
+      }
+    }
+  }
+}
